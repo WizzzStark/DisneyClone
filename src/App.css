@@ -1,3 +1,56 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.faqs {
+    width: 100%;
+    margin: 0 auto;
+    padding: 15px;
+    max-width: 1750px;
+  }
+  
+  .faqs .faq {
+    margin: 15px;
+    padding: 25px;
+    background: #13151D;
+    border-radius: 2px;
+  }
+  
+  .faqs .faq .faq-question {
+    position: relative;
+    font-size: 20px;
+    padding-right: 80px;
+    transition: all 0.4s ease;
+  }
+  
+  .faqs .faq .faq-question::after {
+    content: "+";
+    font-size: 30px;
+    position: absolute;
+    top: 50%;
+    right: -20px;
+    transform: translateY(-40%);
+    width: 50px;
+    height: 50px;
+    transition: all 0.2s ease;
+  }
+  
+  .faqs .faq .faq-answer {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.2s ease;
+  }
+  
+  .faqs .faq.open .faq-question {
+    margin-bottom: 15px;
+  }
+  
+  .faqs .faq.open .faq-question::after {
+    content: "-";
+  }
+  
+  .faqs .faq.open .faq-answer {
+    max-height: 1000px;
+    opacity: 1;
+  }
