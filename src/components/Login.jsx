@@ -2,8 +2,10 @@ import NavBar from './NavBar';
 import Hero from './Hero';
 import Exclusives from './Exclusives';
 import Info from './Info';
-import Devices from './Devices';
+import MoreInfo from './MoreInfo';
 import FAQs from './FAQs';
+import Devices from './Devices';
+
 
 const Login = () => {
 
@@ -13,8 +15,9 @@ const Login = () => {
             <Hero />
             <Exclusives />
             <Info />
-            <Devices />
+            <MoreInfo />
             <FAQs />
+            <Devices />
         </main>
     )
 };
