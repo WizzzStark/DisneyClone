@@ -2,8 +2,8 @@
 
 const MoreInfo = () => {
     return (
-      <section id="moreinfo" className="overflow-hidden h-[50vh]">
-            <main className="flex xl:flex-row md:flex-col justify-center items-center">
+      <section id="moreinfo" className="overflow-hidden md:h-[50vh] sm:h-[150vh]">
+            <main className="flex md:flex-row sm:flex-col justify-center items-center">
                 <div className="flex flex-col items-center text-center pb-[109px]">
                     <img src="/images/info2.png" alt="info2" className="h-[121px] w-[570px] mb-5"/>
                     <h1 className="text-[28px] font-semibold mb-6">

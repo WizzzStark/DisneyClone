@@ -11,7 +11,6 @@ const Login = () => {
 
     return (
         <main>
-            <NavBar />
             <Hero />
             <Exclusives />
             <Info />

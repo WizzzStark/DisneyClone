@@ -2,7 +2,7 @@
 
 const Exclusives = () => {
   return (
-    <section id="exclusives" className="overflow-hidden h-[100vh]">
+    <section id="exclusives" className="overflow-hidden md:h-[100vh] sm:h-[50vh]">
         <main className="w-full relative box-border flex flex-col justify-center items-start h-full">
             { /* Background */ }
             <div className="h-full bg-top bg-cover bg-no-repeat absolute top-0 right-0 left-0 z-[-1]" style={{ backgroundImage: 'url("/images/exclusives.jpg")' }}></div>
