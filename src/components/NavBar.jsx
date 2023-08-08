@@ -74,7 +74,7 @@ const NavBar = () => {
     }, [userName]);
 
     return (
-        <nav className={`fixed z-20 ${showButtons && 'bg-[#040714]'} w-full h-[70px] transition-all duration-500`}>
+        <nav className={`fixed z-20 ${showButtons && 'bg-[#040714]'} w-full transition-all duration-500 ${userName && 'navbarbg'}`}>
         <div className="flex justify-between mt-3 mr-7">
             <div className='flex flex-row'>
                 <a href="#Hero">

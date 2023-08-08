@@ -9,51 +9,194 @@
     max-width: 1750px;
   }
   
-  .faqs .faq {
-    margin: 15px;
-    padding: 25px;
-    background: #13151D;
-    border-radius: 2px;
-  }
-  
-  .faqs .faq .faq-question {
-    position: relative;
-    font-size: 20px;
-    padding-right: 80px;
-    transition: all 0.4s ease;
-  }
-  
-  .faqs .faq .faq-question::after {
-    content: "+";
-    font-size: 30px;
-    position: absolute;
-    top: 50%;
-    right: -20px;
-    transform: translateY(-40%);
-    width: 50px;
-    height: 50px;
-    transition: all 0.2s ease;
-  }
-  
-  .faqs .faq .faq-answer {
-    opacity: 0;
-    max-height: 0;
-    overflow: hidden;
-    transition: all 0.2s ease;
-  }
-  
-  .faqs .faq.open .faq-question {
-    margin-bottom: 15px;
-  }
-  
-  .faqs .faq.open .faq-question::after {
-    content: "-";
-  }
-  
-  .faqs .faq.open .faq-answer {
-    max-height: 1000px;
-    opacity: 1;
-  }
+.faqs .faq {
+  margin: 15px;
+  padding: 25px;
+  background: #13151D;
+  border-radius: 2px;
+}
+
+.faqs .faq .faq-question {
+  position: relative;
+  font-size: 20px;
+  padding-right: 80px;
+  transition: all 0.4s ease;
+}
+
+.faqs .faq .faq-question::after {
+  content: "+";
+  font-size: 30px;
+  position: absolute;
+  top: 50%;
+  right: -20px;
+  transform: translateY(-40%);
+  width: 50px;
+  height: 50px;
+  transition: all 0.2s ease;
+}
+
+.faqs .faq .faq-answer {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.faqs .faq.open .faq-question {
+  margin-bottom: 15px;
+}
+
+.faqs .faq.open .faq-question::after {
+  content: "-";
+}
+
+.faqs .faq.open .faq-answer {
+  max-height: 1000px;
+  opacity: 1;
+}
 
 
 
+.homepage {
+  position: relative;
+  min-height: calc(100vh - 250px);
+  overflow-x: hidden;
+  display: block;
+  top: 72px;
+  padding: 0 calc(3.5vh + 5px);
+}
+
+.homepage::after {
+  background: url("/images/homebg.png") center center / cover no-repeat fixed;
+  content: "";
+  position: absolute;
+  inset: 0px;
+  opacity: 1;
+  z-index: -1;
+}
+
+.navbarbg {
+  position: relative;
+  padding-bottom: 20px;
+}
+
+.navbarbg::after {
+  background: url("/images/homebg.png") center center / cover no-repeat fixed;
+  content: "";
+  position: absolute;
+  inset: 0px;
+  opacity: 1;
+  z-index: -1;
+}
+
+.slider {
+  margin-top: 20px;
+  position: relative;
+}
+
+.slider > button {
+  opacity: 0;
+  height: 100%;
+  width: 5vw;
+  z-index: 1;
+}
+
+.slider > button:hover {
+  opacity: 1;
+  transition: opacity 0.2s ease 0s;
+}
+
+.slider ul li button:before {
+  font-size: 6px;
+  color: rgb(150, 158, 171);
+}
+
+.slider li.slick-active button:before {
+  color: white;
+}
+
+.slider .slick-list {
+  overflow: initial;
+}
+
+.slider .slick-prev {
+  left: -75px;
+}
+
+.slider .slick-next {
+  right: -75px;
+}
+
+
+
+.slick-dots {
+  position: absolute;
+  bottom: 5px;
+}
+
+.slick-dots li {
+  margin: 4px 0; /* Espacio entre los puntos */
+}
+
+.slick-dots li button:before {
+  font-size: 10px; /* Tamaño de los puntos */
+  color: #fff; /* Color de los puntos */
+  opacity: 0.6; /* Opacidad de los puntos */
+}
+
+
+.sliderCard {
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+}
+
+.sliderCard a {
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.69) 0px 26px 30px -10px, rgba(0, 0, 0, 0.73) 0px 16px 10px -10px;
+  cursor: pointer;
+  display: block;
+  position: relative;
+  padding: 4px;
+}
+
+.sliderCard a img {
+  width: 100%;
+  height: 100%;
+}
+
+.sliderCard a:hover {
+  padding: 0;
+  border: 4px solid rgba(249, 249, 249, 0.8);
+  transition-duration: 300ms;
+}
+
+.sectionCard{
+  padding-top: 56.25%;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.69) 0px 26px 30px -10px, rgba(0, 0, 0, 0.73) 0px 16px 10px -10px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
+  border: 3px solid rgba(249, 249, 249, 0.1);
+}
+
+.sectionCard:hover {
+  box-shadow: rgba(0, 0, 0, 0.8) 0px 40px 58px -16px, rgba(0, 0, 0, 0.72) 0px 30px 22px -10px;
+  transform: scale(1.05);
+  border-color: rgba(249, 249, 249, 0.8);
+}
+
+.imageCard{
+  inset: 0px;
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  opacity: 1;
+  position: absolute;
+  transition: opacity 500ms ease-in-out 0s;
+  width: 100%;
+  z-index: 1;
+  top: 0;
+}
