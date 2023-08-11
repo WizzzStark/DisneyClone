@@ -9,7 +9,7 @@ const CardViewers = () => {
     ];
   
     return (
-      <section className="mt-[30px] grid py-[30px] pb-[26px] gap-[25px] md:grid-cols-6 grid-cols-1">
+      <section className="mt-[30px] grid py-[30px] pb-[26px] gap-[25px] md:grid-cols-6 md:grid-rows-1 grid-cols-3 grid-rows-2">
         {cardData.map((card, index) => (
           <div key={index} className="sectionCard relative group">
             <img src={card.imageSrc} alt={`logo de disney ${index + 1}`} className="imageCard" />

@@ -74,10 +74,10 @@ const NavBar = () => {
     }, [userName]);
 
     return (
-        <nav className={`fixed z-20 ${showButtons && 'bg-[#040714]'} w-full transition-all duration-500 ${userName && 'navbarbg'}`}>
+        <nav className={`fixed z-20 ${showButtons && 'bg-[#040714] pb-2'} w-full transition-all duration-500 ${window.location.pathname === '/home' && 'navbarbg'} ${window.location.pathname === '/home' && 'bg-transparent'}`}>
         <div className="flex justify-between mt-3 mr-7">
             <div className='flex flex-row'>
-                <a href="#Hero">
+                <a href={`${userName ? "/home" : "#Hero"}`}>
                     <img className={`w-[110px] h-[44px] ml-10 transition-all duration-300 ${showButtons ? 'opacity-100' : 'opacity-0'} ${userName && 'opacity-100'}`} src="/images/navlogo.svg" alt="logo del navbar" />  
                 </a>
                 {/* Menu if logged in*/}

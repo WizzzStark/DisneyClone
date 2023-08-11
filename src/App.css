@@ -200,3 +200,9 @@
   z-index: 1;
   top: 0;
 }
+
+.blur {
+  background-image: radial-gradient(farthest-side at 73% 21%, transparent, rgb(26, 29, 41));
+  position: absolute;
+  inset: 0px;
+}
