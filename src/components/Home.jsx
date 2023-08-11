@@ -57,7 +57,7 @@ const Home = () => {
       <CardViewers />
       <MovieSections title={"Recomendadas para ti"} type={"recommended"}/>
       <MovieSections title={"Nuevo en Disney+"} type={"new"}/>
-      <MovieSections title={"Nuevo en Disney+"} type={"soon"} bigSection={true}/>
+      <MovieSections title={"Estrenos"} type={"soon"} bigSection={true}/>
     </main>
   )
 }
