@@ -1,4 +1,3 @@
-import NavBar from './NavBar';
 import Hero from './Hero';
 import Exclusives from './Exclusives';
 import Info from './Info';
@@ -10,7 +9,7 @@ import Devices from './Devices';
 const Login = () => {
 
     return (
-        <main>
+        <main className='md:mx-0 sm:mx-1'>
             <Hero />
             <Exclusives />
             <Info />

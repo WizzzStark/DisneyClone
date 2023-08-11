@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react'
 import { auth, provider } from '../firebase'
 import { signInWithPopup, signOut, onAuthStateChanged } from 'firebase/auth'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
+import { Toaster, toast } from 'sonner'
 
 import { useDispatch, useSelector } from 'react-redux'
-import { selectUserName, selectUserPhoto, selectUserEmail, setUserLoginDetails, setSignOutState } from '../features/user/userSlice'
+import { selectUserName, selectUserPhoto, setUserLoginDetails, setSignOutState } from '../features/user/userSlice'
 
 import { BiSolidHome, BiSearch, BiSolidStar } from 'react-icons/bi'
 import {IoMdAdd} from 'react-icons/io'
@@ -17,7 +18,6 @@ const NavBar = () => {
     const dispatch = useDispatch();
     const userName = useSelector(selectUserName);
     const userPhoto = useSelector(selectUserPhoto);
-    const userEmail = useSelector(selectUserEmail);
 
     const [showButtons, setShowButtons] = useState(false);
 
@@ -50,6 +50,10 @@ const NavBar = () => {
         }));
     };
 
+    const alert = () => {
+        toast.error('Los filtros están deshabilitadas dada la poca cantidad de películas en esta prueba');
+    };
+
 
     useEffect(() => {
         const handleScroll = () => {
@@ -75,38 +79,39 @@ const NavBar = () => {
 
     return (
         <nav className={`fixed z-20 ${showButtons && 'bg-[#040714] pb-2'} w-full transition-all duration-500 ${window.location.pathname === '/home' && 'navbarbg'} ${window.location.pathname === '/home' && 'bg-transparent'}`}>
+        <Toaster position="top-center" richColors/>
         <div className="flex justify-between mt-3 mr-7">
             <div className='flex flex-row'>
-                <a href={`${userName ? "/home" : "#Hero"}`}>
-                    <img className={`w-[110px] h-[44px] ml-10 transition-all duration-300 ${showButtons ? 'opacity-100' : 'opacity-0'} ${userName && 'opacity-100'}`} src="/images/navlogo.svg" alt="logo del navbar" />  
-                </a>
+                <Link to={userName ? "/home" : "#Hero"}>
+                    <img className={`w-[110px] h-[44px] md:ml-10 sm:ml-0 transition-all duration-300 ${showButtons ? 'opacity-100' : 'opacity-0'} ${userName && 'opacity-100'}`} src="/images/navlogo.svg" alt="logo del navbar" />  
+                </Link>
                 {/* Menu if logged in*/}
                 {userName && (
                     <div className='flex flex-row items-center font-semibold text-[13px] tracking-wider'>
-                        <a href="/user" className='flex flex-row items-center gap-2'>
+                        <Link to="/home" className='md:flex flex-row items-center gap-2 sm:hidden'>
                             <BiSolidHome className='w-[17px] h-[17px] rounded-full ml-10 text-underline'/>
                             <span> INICIO </span>
-                        </a>
-                        <a href="/user" className='flex flex-row items-center gap-2'>
+                        </Link>
+                        <Link to="/home" className='md:flex flex-row items-center gap-2 sm:hidden' onClick={alert}>
                             <BiSearch className='w-[17px] h-[17px] rounded-full ml-10'/>
                             <h2> BÚSQUEDA </h2>
-                        </a>
-                        <a href="/user" className='flex flex-row items-center gap-2'>
+                        </Link>
+                        <Link to="/home" className='md:flex flex-row items-center gap-2 sm:hidden' onClick={alert}>
                             <IoMdAdd className='w-[17px] h-[17px] rounded-full ml-10'/>
                             <h2> MI LISTA </h2>
-                        </a>
-                        <a href="/user" className='flex flex-row items-center gap-2'>
+                        </Link>
+                        <Link to="/home" className='md:flex flex-row items-center gap-2 sm:hidden' onClick={alert}>
                             <BiSolidStar className='w-[17px] h-[17px] rounded-full ml-10'/>
                             <h2> ORIGINALES </h2>
-                        </a>
-                        <a href="/user" className='flex flex-row items-center gap-2'>
+                        </Link>
+                        <Link to="/home" className='md:flex flex-row items-center gap-2 sm:hidden' onClick={alert}>
                             <PiFilmReelFill className='w-[17px] h-[17px] rounded-full ml-10'/>
                             <h2> PELÍCULAS </h2>
-                        </a>
-                        <a href="/user" className='flex flex-row items-center gap-2'>
+                        </Link>
+                        <Link to="/home" className='md_flex flex-row items-center gap-2 sm:hidden' onClick={alert}>
                             <PiTelevisionSimpleFill className='w-[17px] h-[17px] rounded-full ml-10'/>
                             <h2> SERIES </h2>
-                        </a>
+                        </Link>
                     </div>
                 )}
             </div>
@@ -114,12 +119,15 @@ const NavBar = () => {
             {/* Login buttons or photo*/}
             {
                 !userName ? (
-                    <div>
-                        <button className={`${showButtons ? 'opacity-100' : 'opacity-0'} w-[181px] h-[50px] mr-3 bg-[#0063e5] text-[#f9f9f9] text-[18px] tracking-wide rounded-[5px] hover:bg-[#0076e5] transition-all duration-300`}>
+                    <div className='flex'>
+                        <button 
+                            className={`${showButtons ? 'opacity-100' : 'opacity-0'} md:w-[181px] md:h-[50px] sm:w-[120px] mr-3 bg-[#0063e5] text-[#f9f9f9] md:text-[18px] sm:text-[14px] tracking-wide rounded-[5px] hover:bg-[#0076e5] transition-all duration-300`}
+                            onClick={() => toast.error('Los pagos no están implementados para mejorar la experiencia de usuario en la navegación, prueba a iniciar sesión')}
+                            >
                             SUSCRÍBETE YA
                         </button>
                         <button 
-                            className='w-[181px] h-[50px] bg-black text-[#f9f9f9] text-[18px] tracking-wide border-white border-[0.5px] rounded-[5px] hover:bg-[#f9f9f9] hover:text-black transition-all duration-300'
+                            className='md:w-[181px] h-[50px] sm:w-[120px] bg-black text-[#f9f9f9] md:text-[18px] sm:text-[14px] tracking-wide border-white border-[0.5px] rounded-[5px] hover:bg-[#f9f9f9] hover:text-black transition-all duration-300'
                             onClick={handleAuth}
                             >
                             INICIAR SESIÓN

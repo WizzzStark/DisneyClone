@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux"
 import db from "../firebase"
 import { collection, getDocs } from "firebase/firestore"
 
+import { Toaster } from 'sonner'
 import { setMovies } from "../features/movie/movieSlice"
 
 import ImageSlider from "./ImageSlider"
@@ -51,6 +52,7 @@ const Home = () => {
 
   return (
     <main className="homepage">
+      <Toaster position="top-center" richColors/>
       <ImageSlider />
       <CardViewers />
       <MovieSections title={"Recomendadas para ti"} type={"recommended"}/>
